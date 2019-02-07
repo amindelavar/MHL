@@ -1,0 +1,36 @@
+
+
+mhl [function-name] [argvs...]
+
+Functions:
+---------------
+~> dns_map
+@argv.0.str|domain_name	        //=>www.google.com
+@argv.1.str|option:
+                    -ed : return edition number of this function
+                    -ip : return ip address
+                    -ns : return name servers
+                    -mx : return mail exchanger
+                    -sd : return sub domains
+                    -bf : brute force by get a file containing hostnames and sub domains (need a path in extra argv)
+                    -pk : return collection of -ip,-ns,-mx,-sd (package)
+@argv.2.str|extra
+example.1: > mhl dns_map https://google.com -ip
+***************************
+~>net_scan
+@argv.0.str|ip_address	        //=>192.168.0.1
+@argv.1.str|option:
+                    -ed : return edition number of this function
+                    -dm : discover machines with a range of ip addresses (need ip addresses in extra argv)
+                    (like) : 192.168.0.1/64
+                    -ps : return scanned ports on machine (port scan)
+                    -od : return OS information of machine (os detection)
+                    -pk : return collection of -ps,-od (package)
+
+@argv.2.str|extra
+example.1: > mhl net_scan 192.168.0.1 -dm 192.168.0.1/64
+***************************
+
+
+
+
